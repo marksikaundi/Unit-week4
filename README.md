@@ -122,3 +122,23 @@ print('x is divisible by y')
 But the extra comparison is unnecessary.
 As an exercise, write a function is_between(x, y, z) that returns True if x ≤ y ≤ z or
 False otherwise.
+
+# 6.5 More recursion
+We have only covered a small subset of Python, but you might be interested to know that
+this subset is a complete programming language, which means that anything that can be
+computed can be expressed in this language. Any program ever written could be rewritten
+using only the language features you have learned so far (actually, you would need a few
+commands to control devices like the mouse, disks, etc., but that’s all).
+Proving that claim is a nontrivial exercise first accomplished by Alan Turing, one of the
+first computer scientists (some would argue that he was a mathematician, but a lot of early
+computer scientists started as mathematicians). Accordingly, it is known as the Turing
+Thesis. For a more complete (and accurate) discussion of the Turing Thesis, I recommend
+Michael Sipser’s book Introduction to the Theory of Computation.
+To give you an idea of what you can do with the tools you have learned so far, we’ll evaluate a few recursively defined mathematical functions. A recursive definition is similar to
+a circular definition, in the sense that the definition contains a reference to the thing being
+defined. A truly circular definition is not very useful:
+vorpal: An adjective used to describe something that is vorpal.
+If you saw that definition in the dictionary, you might be annoyed. On the other hand,
+if you looked up the definition of the factorial function, denoted with the symbol !, you
+might get something like this:
+

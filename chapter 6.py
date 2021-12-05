@@ -37,3 +37,11 @@ def is_divisible(x, y): # boolean function
         return True
     else:
         return False
+
+def factorial(n): # recursive function
+    if n == 0:
+        return 1
+    else:
+        recurse = factorial(n-1)
+        result = n * recurse
+        return result
