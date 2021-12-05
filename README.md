@@ -72,4 +72,53 @@ consolidate multiple statements into compound expressions, but only if it does n
 make the program difficult to read.
 As an exercise, use incremental development to write a function called hypotenuse that
 returns the length of the hypotenuse of a right triangle given the lengths of the other two
-legs as arguments. Record each stage of the development process as you go
+legs as arguments. Record each stage of the development process as you go.
+
+# 6.3 Composition
+As you should expect by now, you can call one function from within another. As an example, we’ll write a function that takes two points, the center of the circle and a point on the
+perimeter, and computes the area of the circle.
+Assume that the center point is stored in the variables xc and yc, and the perimeter point is
+in xp and yp. The first step is to find the radius of the circle, which is the distance between
+the two points. We just wrote a function, distance, that does that:
+radius = distance(xc, yc, xp, yp)
+The next step is to find the area of a circle with that radius; we just wrote that, too:
+result = area(radius)
+Encapsulating these steps in a function, we get:
+def circle_area(xc, yc, xp, yp):
+radius = distance(xc, yc, xp, yp)
+result = area(radius)
+return result
+The temporary variables radius and result are useful for development and debugging,
+but once the program is working, we can make it more concise by composing the function
+calls:
+def circle_area(xc, yc, xp, yp):
+return area(distance(xc, yc, xp, yp))
+
+# 6.4 Boolean functions
+Functions can return booleans, which is often convenient for hiding complicated tests inside functions. For example:
+def is_divisible(x, y):
+if x % y == 0:
+return True
+else:
+return False
+
+It is common to give boolean functions names that sound like yes/no questions;
+is_divisible returns either True or False to indicate whether x is divisible by y.
+Here is an example:
+>>> is_divisible(6, 4)
+False
+>>> is_divisible(6, 3)
+True
+The result of the == operator is a boolean, so we can write the function more concisely by
+returning it directly:
+def is_divisible(x, y):
+return x % y == 0
+Boolean functions are often used in conditional statements:
+if is_divisible(x, y):
+print('x is divisible by y')
+It might be tempting to write something like:
+if is_divisible(x, y) == True:
+print('x is divisible by y')
+But the extra comparison is unnecessary.
+As an exercise, write a function is_between(x, y, z) that returns True if x ≤ y ≤ z or
+False otherwise.
